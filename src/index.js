@@ -10,19 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function checkState(event){
 
     //get the text content of the Span
-    let span = event.target.firstChild
-    console.log(event.target.children);
+    let innerSpace = event.target.dataset.token
+    console.log(event.target.dataset.token);
 
     // gamePlay
-    if(p1Turn && span === ""){
-      event.target.firstChild.innerText = "X"
+    if(p1Turn && innerSpace === ""){
+      event.target.dataset.token = "X"
+      event.target.children[1].style.display = "block"
       p1Turn = false
       if (checkWinningGame() === "Player 1"){
         alert("Player 1 wins TACO!!!")
         //send patch clear board
       }
-    }else if (!p1Turn && span === ""){
-      event.target.firstChild.innerText = "O"
+    }else if (!p1Turn && innerSpace === ""){
+      event.target.dataset.token = "O"
+      event.target.children[0].style.display = "block"
       p1Turn = true
       if (checkWinningGame() === "Player 2"){
         alert("Player 2 wins TACO!!!")
@@ -38,15 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
   //[1,2,3]  [4,5,6]  [7,8,9] [1,4,7] [2,5,8] [3,6,9] [1,5,9] [3,5,7]
   function checkWinningGame(){
     console.log("in winning game");
-    let a1 = document.getElementById('1').children[0].firstChild.innerText
-    let b2 = document.getElementById('2').children[0].firstChild.innerText
-    let c3 = document.getElementById('3').children[0].firstChild.innerText
-    let d4 = document.getElementById('4').children[0].firstChild.innerText
-    let e5 = document.getElementById('5').children[0].firstChild.innerText
-    let f6 = document.getElementById('6').children[0].firstChild.innerText
-    let g7 = document.getElementById('7').children[0].firstChild.innerText
-    let h8 = document.getElementById('8').children[0].firstChild.innerText
-    let i9 = document.getElementById('9').children[0].firstChild.innerText
+    let a1 = document.getElementById('1').children[0].dataset.token
+    let b2 = document.getElementById('2').children[0].dataset.token
+    let c3 = document.getElementById('3').children[0].dataset.token
+    let d4 = document.getElementById('4').children[0].dataset.token
+    let e5 = document.getElementById('5').children[0].dataset.token
+    let f6 = document.getElementById('6').children[0].dataset.token
+    let g7 = document.getElementById('7').children[0].dataset.token
+    let h8 = document.getElementById('8').children[0].dataset.token
+    let i9 = document.getElementById('9').children[0].dataset.token
     if ((a1 === "X" && b2 === "X" && c3 === "X")||
         (d4 === "X" && e5 === "X" && f6 === "X")||
         (g7 === "X" && h8 === "X" && i9 === "X")||
