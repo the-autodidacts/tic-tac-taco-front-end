@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const board = document.getElementById('board')
   board.addEventListener("click", checkState)
 
   //intialize the state of the board when the DOM Loads player1 always starts therefor set var for p1Turn to true
@@ -7,9 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const player2 = "0"
   let p1Turn    = true
 
-  function theBoard(fill){
-    let board = ["","","","","","","",""]
-  }
 
   function checkState(event){
 
@@ -22,12 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
       event.target.dataset.token = "X"
       event.target.children[1].style.display = "block"
       p1Turn = false
-      checkWinningGame()
+      if (checkWinningGame() === "Player 1"){
+        alert("Player 1 wins TACO!!!")
+        //send patch clear board
+      }
     }else if (!p1Turn && innerSpace === ""){
       event.target.dataset.token = "O"
       event.target.children[0].style.display = "block"
       p1Turn = true
-      checkWinningGame()
+      if (checkWinningGame() === "Player 2"){
+        alert("Player 2 wins TACO!!!")
+        //send patch clear board
+      }
     }else{
       return
     }
@@ -55,9 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         (c3 === "X" && f6 === "X" && i9 === "X")||
         (a1 === "X" && e5 === "X" && i9 === "X")||
         (c3 === "X" && e5 === "X" && g7 === "X")){
-          let game ={ board: [a1, b2, c3, d4, e5, f6, g7, h8, i9],
-                      player: 'Player 1'}
-          endGame(game)
           return "Player 1"
     }else if((a1 === "X" && b2 === "X" && c3 === "X")||
         (d4 === "O" && e5 === "O" && f6 === "O")||
@@ -67,27 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         (c3 === "O" && f6 === "O" && i9 === "O")||
         (a1 === "O" && e5 === "O" && i9 === "O")||
         (c3 === "O" && e5 === "O" && g7 === "O")){
-          let game ={ board: [a1, b2, c3, d4, e5, f6, g7, h8, i9],
-                      player: 'Player 2'}
-          endGame(game)
           return "Player 2"
     }
   }
-
-  function endGame(game){
-      alert(`${game.player} wins! Taco`)
-      console.log(JSON.stringify(game))
-      resetBoard()
-      //fetch create new game in database
-    }
-
-  function resetBoard(){
-    Array.from(document.getElementsByClassName('interior-space')).forEach(function(interiorDivElements){
-      console.log(interiorDivElements);
-      interiorDivElements.dataset.token = ""
-      interiorDivElements.children[0].style.display = "none"
-      interiorDivElements.children[1].style.display = "none"
-    })
-  }
-
 });
