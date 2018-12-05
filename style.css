@@ -21,13 +21,12 @@ h1{
 }
 
 .interior-space{
-  width: 100%;
-  height: 5em;
+  width: 100px;
+  height: 100px;
+  margin: auto;
 }
 
-.circle-spin{
-  
-}
+
 
 .table-responsive{
   background-color: #f2f2f2;
