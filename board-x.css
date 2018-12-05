@@ -1,0 +1,22 @@
+.x {
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+.x:after {
+    content: '';
+    height: 60px;
+    border-left: 2px solid #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 28px;
+}
+
+.x:before {
+    content: '';
+    height: 60px;
+    border-left: 2px solid #fff;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 28px;
+}

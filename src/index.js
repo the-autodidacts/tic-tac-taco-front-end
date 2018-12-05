@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function checkState(event){
 
     //get the text content of the Span
-    let span = event.target.firstChild.innerText
-    console.log(event.target);
+    let span = event.target.firstChild
+    console.log(event.target.children);
 
     // gamePlay
     if(p1Turn && span === ""){

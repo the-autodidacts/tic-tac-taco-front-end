@@ -5,12 +5,16 @@
 
     <script type="text/javascript" src="./src/index.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="board-circles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="board-x.css" type="text/css" media="all">
 
     <title>Tic Tac Taco!</title>
 
   </head>
   <body>
     <h1>Tic Tac Taco</h1>
+
+    <!--/////////////////////////Login SignUP ////////////////////////////////////-->
     <form class="player-1" action="index.html" method="post">
       <input type="text" name="player1" placeholder="player 1 login or sign up"value="">
       <input type="submit" name="" value="Go">
@@ -22,44 +26,77 @@
     </form>
 
     </form>
+
+
+    <!--/////////////////////////GAME BOARD ////////////////////////////////////-->
     <div id="board">
 
       <div id="1">
-        <div class="interior-space"><span class="animate"></span></div>
+        <div class="interior-space" data-token="">
+          <div id="circle-1" class="circle spin" style="display: none;"></div>
+          <div id="x-1" class="x" style="display: ;"></div>
+        </div>
       </div>
 
       <div id="2">
-        <div class="interior-space"><span class="animate"></span></div>
+        <div class="interior-space">
+          <div id="circle-2" class="circle spin" style="display: none;"></div>
+          <div id="x-2" class="x" style="display: none;"></div>
+        </div>
       </div>
 
       <div id="3">
-        <div class="interior-space"><span class="animate"></span></div>
+        <div class="interior-space" data-token="">
+          <div id="circle-3" class="circle spin" style="display: none;"></div>
+          <div id="x-3" class="x" style="display: none;"></div>
+        </div>
       </div>
 
       <div id="4">
-        <div class="interior-space"><span class="animate"></span></div>
+        <div class="interior-space" data-token="">
+          <div id="circle-4" class="circle spin" style="display: none;"></div>
+          <div id="x-4" class="x" style="display: none;"></div>
+      </div>
       </div>
 
       <div id="5">
-        <div class="interior-space"><span class="animate"></span></div>
+        <div class="interior-space" data-token="">
+          <div id="circle-5" class="circle spin" style="display: none;"></div>
+          <div id="x-5" class="x" style="display: none;"></div>
+        </div>
       </div>
 
       <div id="6">
-        <div class="interior-space"><span class="animate"></span></div>
+        <div class="interior-space" data-token="">
+          <div id="circle-6" class="circle spin" style="display: none;"></div>
+          <div id="x-6" class="x" style="display: none;"></div>
+        </div>
       </div>
 
       <div id="7">
-        <div class="interior-space"><span class="animate"></span></div>
+        <div class="interior-space" data-token="">
+          <div id="circle-7" class="circle spin" style="display: none;"></div>
+          <div id="x-7" class="x" style="display: none;"></div>
+        </div>
       </div>
 
       <div id="8">
-        <div class="interior-space"><span class="animate"></span></div>
+        <div class="interior-space" data-token="">
+          <div id="circle-8" class="circle spin" style="display: none;"></div>
+          <div id="x-8" class="x" style="display: none;"></div>
+        </div>
       </div>
 
       <div id="9">
-        <div class="interior-space"><span class="animate"></span></div>
+        <div class="interior-space" data-token="">
+          <div id="circle-9" class="circle spin" style="display: none;"></div>
+          <div id="x-9" class="x" style="display: none;"></div>
+        </div>
       </div>
 
     </div>
+    <!--////////////////////////Side Bar////////////////////////////////////-->
+
+
   </body>
 </html>
