@@ -26,16 +26,13 @@
     <h1>Tic Tac Taco</h1>
 
     <!--/////////////////////////Login SignUP ////////////////////////////////////-->
-    <form class="player-1" action="index.html" method="post">
-      <input type="text" name="player1" placeholder="player 1 login or sign up"value="">
-      <input type="submit" name="" value="Go">
-    </form>
-
-    <form class="player-2" action="index.html" method="post">
-      <input type="text" name="player2" placeholder="player 2 login or sign up"value="">
-      <input type="submit" name="" value="Go">
-    </form>
-
+    <div id="formDiv">
+      <form class="player-1" action="" method="post">
+        <input type="text" name="player1" placeholder="player 1 login or sign up"value="">
+        <input type="text" name="player2" placeholder="player 2 login or sign up"value="">
+        <input type="submit" name="" value="Go">
+      </form>
+    </div>
 
     <!--/////////////////////////GAME BOARD ////////////////////////////////////-->
     <div id="board">
@@ -112,8 +109,8 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Player1.name</th>
-            <th>PLayer2.name</th>
+            <th id="table-player1">Player1.name</th>
+            <th id="table-player2">PLayer2.name</th>
           </tr>
         </thead>
 

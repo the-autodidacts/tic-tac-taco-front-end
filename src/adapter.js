@@ -15,7 +15,7 @@ class APIAdapter {
     return fetch(`${this.endpoint}/${id}`)
       .then(response=>response.json())
   }
-   // { key: 'value', key: { key: 'value', key: 'value'} }
+
   createItem(body) {
     return fetch(this.endpoint, {
       method: 'POST',

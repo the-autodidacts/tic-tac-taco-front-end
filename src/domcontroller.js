@@ -12,11 +12,20 @@ class DOMController {
     })
   }
 
-  resetBoardView(){
+  resetBoardView(p1, p2){
     Array.from(document.getElementsByClassName('interior-space')).forEach(function(interiorDivElements){
       interiorDivElements.dataset.token = ""
       interiorDivElements.children[0].style.display = "none"
       interiorDivElements.children[1].style.display = "none"
     })
   }
+
+  showPlayersSideBar(p, number){
+    document.getElementById(`table-player${number}`).innerText = p1.name
+  }
+
+  showPlayersGames(p, games){
+
+  }
+
 }
