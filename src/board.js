@@ -34,8 +34,8 @@ class Board {
         (c3 === "X" && e5 === "X" && g7 === "X")){
           let game ={ board: [a1, b2, c3, d4, e5, f6, g7, h8, i9],
                       player: 'Player 1'}
-          this.endGame(game)
-          return "Player 1"
+          return this.endGame(game)
+
     }else if((a1 === "O" && b2 === "O" && c3 === "O")||
         (d4 === "O" && e5 === "O" && f6 === "O")||
         (g7 === "O" && h8 === "O" && i9 === "O")||
@@ -46,23 +46,20 @@ class Board {
         (c3 === "O" && e5 === "O" && g7 === "O")){
           let game ={ board: [a1, b2, c3, d4, e5, f6, g7, h8, i9],
                       player: 'Player 2'}
-          this.endGame(game)
-          return "Player 2"
+          return this.endGame(game)
+
     }
   }
 
   endGame(game){
       this.won = true
-      console.log(JSON.stringify(game))
-      //resetBoardView()
-      alert(`${game.player} wins! Taco`)
-      //fetch create new game in database
+      return game;
     }
 
     resetBoard(){
       this.won = false
-      gameBoard.p1Turn = true
-      gameBoard.gameBoard = ["","","","","","","","",""]
+      this.p1Turn = true
+      this.gameBoard = ["","","","","","","","",""]
     }
 
 }

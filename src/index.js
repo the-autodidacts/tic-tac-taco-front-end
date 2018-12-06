@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
       gameBoard.p1Turn = true
       drawBoardView(gameBoard.gameBoard)
     }
+    gameBoard.checkWinningGame()
+    //Game over
+    if (gameBoard.won){
+      console.log(gameBoard.checkWinningGame())
+      alert(`${gameBoard.checkWinningGame().player} Won! Taco!`)
+      resetBoardView()
+      gameBoard.resetBoard()
+    }
   }
 
   function drawBoardView(aBoard){
@@ -31,10 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll(`[data-id='${index+1}']`)[0].children[0].style.display ="block"
       }
     })
-    if (!gameBoard.won){
-      gameBoard.checkWinningGame()
-    }
-
   }
 
   function resetBoardView(){
@@ -43,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
       interiorDivElements.children[0].style.display = "none"
       interiorDivElements.children[1].style.display = "none"
     })
-    gameBoard.resetBoard()
   }
 
 });
