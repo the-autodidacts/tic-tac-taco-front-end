@@ -1,24 +1,36 @@
+
 body {
-  font-family: 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.1em;
-  line-height: 1.5;
-  background: rgba( 247, 249, 249, 1);
+	/* display: flex; */
+	/* justify-content: center; */
+	/* align-items: center; */
+	/* flex-direction: column; */
+	/* height: 100vh; */
+	/* position: relative; */
+	/* background-color: #f4cc70 !important; */
+  /* background-image: url('https://image.freepik.com/free-vector/vector-taco-pattern_9263-13.jpg')!important; */
+  /* background-repeat: no-repeat; */
+  /* background-size: auto; */
+  /* background-opacity: 0.5; */
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1000%;
+  height: 1000%;
+  background-image: url('https://image.freepik.com/free-vector/vector-taco-pattern_9263-13.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  opacity: 0.2;
+  filter:alpha(opacity=20);
+  z-index: -1;
 }
 
 h1{
   margin: auto;
   text-align: center;
-}
-
-#board {
-  width: 400px;
-  height: 400px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  background-color: #51a7fa;
-  border: 1px solid black;
-  float: left;
 }
 
 .interior-space{
@@ -28,10 +40,52 @@ h1{
   margin: auto;
 }
 
+.box1,.box2,.box4,.box5 {
+  border-right: 5px solid red;
+  border-bottom: 5px solid red;
+}
+.box1,.box2,.box3,.box6 {
+  border-bottom: 5px solid red;
+}
+.box7,.box8{
+  border-right: 5px solid red;
+}
 
+#board {
+  /* margin: auto;
+  width: 400px;
+  height: 400px; */
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: #FFFFF0;
+  cursor: pointer;
+  border-style: double;
+}
 
 .table-responsive{
   background-color: #f2f2f2;
   width: 500px;
   border: 1px solid black;
+  float: right;
+  position: relative;
+	text-align: center;
+  align-items: right;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.3fr 0.9fr 1.8fr;
+  grid-template-rows: 0.2fr 0.4fr 0.2fr 0.5fr 0.3fr 2.8fr 2.6fr;
+  grid-template-areas: ". . . . . ." ". title title title title ." ". . . . . ." ". input1 input2 . . ." ". . . . . ." ". boardspace boardspace . tablecontainer ." ". . . . . .";
+}
+
+.title { grid-area: title; }
+
+.input1 { grid-area: input1; }
+
+.boardspace { grid-area: boardspace; }
+
+.input2 { grid-area: input2; }
+
+.tablecontainer { grid-area: tablecontainer; }

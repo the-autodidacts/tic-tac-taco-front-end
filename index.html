@@ -3,9 +3,6 @@
   <head>
     <meta charset="utf-8">
 
-    <script type="text/javascript" src="./src/domcontroller.js"></script>
-    <script type="text/javascript" src="./src/adapter.js"></script>
-    <script type="text/javascript" src="./src/board.js"></script>
     <script type="text/javascript" src="./src/index.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
     <link rel="stylesheet" href="board-circles.css" type="text/css" media="all">
@@ -23,119 +20,129 @@
 
   </head>
   <body>
-    <h1>Tic Tac Taco</h1>
+    <div id="background"></div>
+    <!--Added a grid container to carry all the divs in the body  -->
+    <div class="grid-container">
 
-    <!--/////////////////////////Login SignUP ////////////////////////////////////-->
-    <form class="player-1" action="index.html" method="post">
-      <input type="text" name="player1" placeholder="player 1 login or sign up"value="">
-      <input type="submit" name="" value="Go">
-    </form>
+      <div class="title">
+        <h1>Tic Tac Taco</h1>
+      </div>
 
-    <form class="player-2" action="index.html" method="post">
-      <input type="text" name="player2" placeholder="player 2 login or sign up"value="">
-      <input type="submit" name="" value="Go">
-    </form>
+      <!--/////////////////////////Login SignUP ////////////////////////////////////-->
+
+      <!-- Added div class input1 below  -->
+      <div class="input1">
+        <form class="player-1" action="index.html" method="post">
+          <input type="text" name="player1" placeholder="player 1 login or sign up"value="">
+          <input type="submit" name="" value="Go">
+        </form>
+      </div>
+
+      <!-- Added div class input2 below  -->
+      <div class="input2">
+        <form class="player-2" action="index.html" method="post">
+          <input type="text" name="player2" placeholder="player 2 login or sign up"value="">
+          <input type="submit" name="" value="Go">
+        </form>
+      </div>
 
 
     <!--/////////////////////////GAME BOARD ////////////////////////////////////-->
-    <div id="board">
+      <!--Added a div className boardspace below   -->
+      <div class="boardspace" id="board">
 
-      <div id="1">
-        <div class="interior-space" data-token="" data-id="1">
-          <div id="circle-1" class="circle spin" style="display: none;"></div>
-          <div id="x-1" class="x" style="display: none;"></div>
+        <div class="box1" id="1">
+          <div class="interior-space" data-token="">
+            <div id="circle-1" class="circle spin" style="display: none;"></div>
+            <div id="x-1" class="x" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="box2" id="2">
+          <div class="interior-space" data-token>
+            <div id="circle-2" class="circle spin" style="display: none;"></div>
+            <div id="x-2" class="x" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="box3" id="3">
+          <div class="interior-space" data-token="">
+            <div id="circle-3" class="circle spin" style="display: none;"></div>
+            <div id="x-3" class="x" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="box4" id="4">
+          <div class="interior-space" data-token="">
+            <div id="circle-4" class="circle spin" style="display: none;"></div>
+            <div id="x-4" class="x" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="box5" id="5">
+          <div class="interior-space" data-token="">
+            <div id="circle-5" class="circle spin" style="display: none;"></div>
+            <div id="x-5" class="x" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="box6" id="6">
+          <div class="interior-space" data-token="">
+            <div id="circle-6" class="circle spin" style="display: none;"></div>
+            <div id="x-6" class="x" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="box7" id="7">
+          <div class="interior-space" data-token="">
+            <div id="circle-7" class="circle spin" style="display: none;"></div>
+            <div id="x-7" class="x" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="box8" id="8">
+          <div class="interior-space" data-token="">
+            <div id="circle-8" class="circle spin" style="display: none;"></div>
+            <div id="x-8" class="x" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="box9" id="9">
+          <div class="interior-space" data-token="">
+            <div id="circle-9" class="circle spin" style="display: none;"></div>
+            <div id="x-9" class="x" style="display: none;"></div>
+          </div>
+        </div>
+
+      </div>
+      <!-- div className boardspace Above ENDS HERE   -->
+
+      <!--////////////////////////Side Bar////////////////////////////////////-->
+
+      <!-- Added a div class tablecontainer below -->
+      <div class="tablecontainer">
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Player1.name</th>
+                <th>PLayer2.name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>game1</td>
+                <td>game2</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-
-      <div id="2">
-        <div class="interior-space" data-token="" data-id="2">
-          <div id="circle-2" class="circle spin" style="display: none;"></div>
-          <div id="x-2" class="x" style="display: none;"></div>
-        </div>
-      </div>
-
-      <div id="3">
-        <div class="interior-space" data-token="" data-id="3">
-          <div id="circle-3" class="circle spin" style="display: none;"></div>
-          <div id="x-3" class="x" style="display: none;"></div>
-        </div>
-      </div>
-
-      <div id="4">
-        <div class="interior-space" data-token="" data-id="4">
-          <div id="circle-4" class="circle spin" style="display: none;"></div>
-          <div id="x-4" class="x" style="display: none;"></div>
-      </div>
-      </div>
-
-      <div id="5">
-        <div class="interior-space" data-token=""  data-id="5">
-          <div id="circle-5" class="circle spin" style="display: none;"></div>
-          <div id="x-5" class="x" style="display: none;"></div>
-        </div>
-      </div>
-
-      <div id="6">
-        <div class="interior-space" data-token="" data-id="6">
-          <div id="circle-6" class="circle spin" style="display: none;"></div>
-          <div id="x-6" class="x" style="display: none;"></div>
-        </div>
-      </div>
-
-      <div id="7">
-        <div class="interior-space" data-token=""  data-id="7">
-          <div id="circle-7" class="circle spin" style="display: none;"></div>
-          <div id="x-7" class="x" style="display: none;"></div>
-        </div>
-      </div>
-
-      <div id="8">
-        <div class="interior-space" data-token="" data-id="8">
-          <div id="circle-8" class="circle spin" style="display: none;"></div>
-          <div id="x-8" class="x" style="display: none;"></div>
-        </div>
-      </div>
-
-      <div id="9">
-        <div class="interior-space" data-token="" data-id="9">
-          <div id="circle-9" class="circle spin" style="display: none;"></div>
-          <div id="x-9" class="x" style="display: none;"></div>
-        </div>
-      </div>
+      <!-- div class tablecontainer Above ENDS HERE -->
 
     </div>
-    <!--////////////////////////Side Table////////////////////////////////////-->
-    <div class="table-responsive">
-
-      <table class="table">
-
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Player1.name</th>
-            <th>PLayer2.name</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>game1</td>
-            <td>game2</td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>game1</td>
-            <td>game2</td>
-          </tr>
-        </tbody>
-
-      </table>
-
-    </div>
-    <!--////////////////////////Side Table////////////////////////////////////-->
   </body>
 </html>
