@@ -56,10 +56,10 @@ class Board {
       return game;
     }
 
-    resetBoard(){
-      this.won = false
-      this.p1Turn = true
-      this.gameBoard = ["","","","","","","","",""]
-    }
+  resetBoard(){
+    this.won = false
+    this.p1Turn = true
+    this.gameBoard = ["","","","","","","","",""]
+  }
 
 }
