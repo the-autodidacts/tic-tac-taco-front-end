@@ -1,6 +1,7 @@
 .x {
     width: 60px;
     height: 60px;
+    margin: auto;
     position: relative;
 }
 .x:after {

@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //drawBoard(game.board)
       console.log(JSON.stringify(game))
       //resetBoard()
-      // debugger
+      
       alert(`${game.player} wins! Taco`)
 
       //fetch create new game in database

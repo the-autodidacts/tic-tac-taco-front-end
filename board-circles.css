@@ -3,4 +3,5 @@ div .circle.spin {
   height: 60px;
   border: 2px solid #fff;
   border-radius: 50%;
+  margin: auto;
 }
