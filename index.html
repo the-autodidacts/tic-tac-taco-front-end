@@ -10,14 +10,6 @@
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
     <link rel="stylesheet" href="board-circles.css" type="text/css" media="all">
     <link rel="stylesheet" href="board-x.css" type="text/css" media="all">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <title>Tic Tac Taco!</title>
 
@@ -35,7 +27,8 @@
     </div>
 
     <!--/////////////////////////GAME BOARD ////////////////////////////////////-->
-    <div id="board">
+    <div id="container">
+      <div id="board">
 
       <div id="1">
         <div class="interior-space" data-token="" data-id="1">
@@ -102,37 +95,30 @@
 
     </div>
     <!--////////////////////////Side Table////////////////////////////////////-->
-    <div class="table-responsive">
+    <div id="players">
 
-      <table class="table">
-
-        <thead>
-          <tr>
-            <th>#</th>
-            <th id="table-player1">Player1.name</th>
-            <th id="table-player2">PLayer2.name</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>game1</td>
-            <td>game2</td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>game1</td>
-            <td>game2</td>
-          </tr>
-        </tbody>
-
-      </table>
+      <div id="player1-name" class="player-names">
+        <p>Player 1</p>
+      </div>
+      <div id="player2-name" class="player-names">
+        <p>Player 2</p>
+      </div>
+      <div id="table-player1" class="player-games">
+        <ul>
+        </ul>
+      </div>
+      <div id="table-player2" class="player-games">
+        <ul>
+        </ul>
+      </div>
 
     </div>
-    <!--////////////////////////Side Table////////////////////////////////////-->
+
+    <div id="message">
+    </div>
+    <button id="new-game-button" type="button" name="New Game">New Game</button>
+  </div>
+
+
   </body>
 </html>

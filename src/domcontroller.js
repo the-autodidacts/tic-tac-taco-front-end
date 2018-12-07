@@ -21,11 +21,31 @@ class DOMController {
   }
 
   showPlayersSideBar(p, number){
-    document.getElementById(`table-player${number}`).innerText = p1.name
+    this.resetPlayerView(number)
+    document.getElementById(`player${number}-name`).children[0].innerText = p.name
   }
 
-  showPlayersGames(p, games){
+  showPlayersGames(game, playerNumber, index){
+    document.getElementById(`table-player${playerNumber}`).children[0].innerHTML += `
+    <li id=${game.id} class="previously-played-game">${index}. Game ID: ${game.id}</li>
 
+    `
+  }
+
+  alert(message){
+
+    document.getElementById("message").innerHTML = `<h1> ${message}</h1>`
+    message = document.getElementById("message")
+    message.style.display = "block"
+
+  }
+
+  displayNewGameButton(){
+
+  }
+
+  resetPlayerView(playerNumber){
+    document.getElementById(`table-player${playerNumber}`).children[0].innerHTML = ``
   }
 
 }

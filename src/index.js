@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //event listeners
   const board = document.getElementById('board')
   board.addEventListener("click", play) //game loop
+  const player = document.getElementById('players')
+  player.addEventListener("click", getGameSingleGame)
 
   const formDiv = document.getElementById('formDiv')
 
@@ -9,14 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   //class and var initialization
-  let gameBoard         = new Board("X", "O")
-  let domController     = new DOMController
-  let playerConnection  = new APIAdapter("api/v1/players")
-  let gameConnection    = new APIAdapter("api/v1/games")
+  let gameBoard            = new Board("X", "O")
+  let domController        = new DOMController
+  let playerConnection     = new APIAdapter("api/v1/players")
+  let gameConnection       = new APIAdapter("api/v1/games")
+  let gamePlayerConnection = new APIAdapter("api/v1/game_players")
 
   let player1     = {}
   let player2     = {}
 
+  function getGameSingleGame(event){
+    domController.resetBoardView()
+    if (event.target.className === "previously-played-game"){
+      gamePlayerConnection.getSingle(event.target.id).then(data=> {
+          gameConnection.getSingle(data.game_id).then(data => domController.drawBoardView(data.board.split("%")))
+      })
+    }
+  }
 
   //game loop
   function play(event){
@@ -38,38 +49,54 @@ document.addEventListener('DOMContentLoaded', () => {
     gameBoard.checkWinningGame()
     //Game over
     if (gameBoard.won){
-      console.log(gameBoard.checkWinningGame())
-      alert(`${gameBoard.checkWinningGame().player} Won! Taco!`)
+      let message = `${gameBoard.checkWinningGame().player} won the last game! 🌮`
+      domController.alert(message)
+
 
       //create board in db
-      console.log(gameBoard.gameBoard);
       gameConnection.createItem({board: gameBoard.gameBoard}).then(response => {
         if (response.ok)return response.json()
       }).then(response => {
-        let boardId = response.id
+        console.log(response)
+        //create finished game in DB
+        gamePlayerConnection.createItem({player1_id: player1.id , player2_id: player2.id, game_id: response.id}).then(responseGamePlayer => {
+          if (response.ok) return responseGamePlayer.json()
+        }).then(responseGamePlayer =>
+          {
+            domController.resetPlayerView(1)
+            domController.resetPlayerView(2)
+            findUserGames(player1.id, 1)
+            findUserGames(player2.id, 2)
+          })
       })
-
-
       domController.resetBoardView()
       gameBoard.resetBoard()
-    }
+      }
   }// end game loop
 
   function userSignInOrCreate(event){
+    domController.resetBoardView()
+    gameBoard.resetBoard()
     event.preventDefault()
-    console.log (event.target)
+    player1     = {}
+    player2     = {}
+    document.getElementById(`player1-name`).children[0].innerText =""
+    document.getElementById(`player2-name`).children[0].innerText =""
     player1Name = event.target.children[0].value
     player2Name = event.target.children[1].value
 
     playerConnection.getAll().then( playerData => {
 
       findUsers(playerData, player1Name, player2Name)
+      findUserGames(player1.id, 1)
+      findUserGames(player2.id, 2)
       if (!player1.name){
 
         playerConnection.createItem({name: player1Name}).then(response => {
           if (response.ok)return response.json()
         }).then(response => {
           player1 = {name: response.name, id: response.id}
+          domController.resetPlayerView(1)
           domController.showPlayersSideBar(player1, 1)
         })
       }
@@ -80,9 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
           if (response.ok)return response.json()
         }).then(response => {
           player2 = {name: response.name, id: response.id}
+          domController.resetPlayerView(2)
           domController.showPlayersSideBar(player2, 2)
         })
       }
+    })
+  }
+/////////////////////////////TO DO DISPLAY USER GAMES////////////////////////
+  function findUserGames(userId, playerNumber){
+    let allGames = null
+    let index = 0
+    gamePlayerConnection.getAll().then(games =>{
+      allGames = games.filter(function(game){
+        if (game.player1_id === userId || game.player2_id === userId) return game
+      })
+      allGames.forEach(function(game){
+        gameConnection.getSingle(game.id).then(data => {
+          index++
+          domController.showPlayersGames(game, playerNumber, index)
+        })
+      })
     })
   }
 
@@ -99,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         domController.showPlayersSideBar(player2, 2)
       }
     })
-
   }
+
 
 });

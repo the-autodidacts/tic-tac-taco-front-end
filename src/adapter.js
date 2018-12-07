@@ -14,6 +14,7 @@ class APIAdapter {
    getSingle(id) {
     return fetch(`${this.endpoint}/${id}`)
       .then(response=>response.json())
+
   }
 
   createItem(body) {
