@@ -104,3 +104,35 @@ input[type="text"] {
   height: 100px;
   margin: auto;
 }
+
+[id='1']{
+  border-right: 2px solid salmon;
+  border-bottom: 2px solid salmon;
+}
+[id='2'] {
+  border-right: 2px solid salmon;
+  border-bottom: 2px solid salmon;
+}
+[id='3'] {
+  border-bottom: 2px solid salmon;
+}
+[id='4'] {
+  border-right: 2px solid salmon;
+  border-bottom: 2px solid salmon;
+}
+[id='5'] {
+  border-right: 2px solid salmon;
+  border-bottom: 2px solid salmon;
+}
+[id='6']{
+  border-bottom: 2px solid salmon;
+}
+[id='7']{
+  border-right: 2px solid salmon;
+}
+[id='8']{
+  border-right: 2px solid salmon;
+}
+[id='9']{
+
+}
