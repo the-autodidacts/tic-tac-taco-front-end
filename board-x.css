@@ -3,6 +3,8 @@
     height: 60px;
     margin: auto;
     position: relative;
+    animation-name: flip-x;
+    animation-duration: 2s;
 }
 .x:after {
     content: '';
@@ -11,6 +13,8 @@
     position: absolute;
     transform: rotate(45deg);
     left: 28px;
+    /* animation-name: flip-x;
+    animation-duration: 2s; */
 }
 
 .x:before {
@@ -20,4 +24,13 @@
     position: absolute;
     transform: rotate(-45deg);
     left: 28px;
+    /* animation-name: flip-x;
+    animation-duration: 2s; */
+}
+
+
+@keyframes flip-x {
+  from{transform: rotateY(0deg);}
+    to{transform: rotateY(180deg);}
+
 }

@@ -4,4 +4,12 @@ div .circle.spin {
   border: 2px solid #fff;
   border-radius: 50%;
   margin: auto;
+  animation-name: flip-y;
+  animation-duration: 2s;
+}
+
+@keyframes flip-y {
+  from{transform: rotateX(0deg);}
+    to{transform: rotateX(180deg);}
+
 }
