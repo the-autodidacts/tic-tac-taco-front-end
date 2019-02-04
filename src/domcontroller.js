@@ -25,9 +25,9 @@ class DOMController {
     document.getElementById(`player${number}-name`).children[0].innerText = p.name
   }
 
-  showPlayersGames(game, playerNumber, index){
+  showPlayersGames(game, playerNumber, index ){
     document.getElementById(`table-player${playerNumber}`).children[0].innerHTML += `
-    <li id=${game.id} class="previously-played-game">${index}. Game ID: ${game.id}</li>
+    <li data-id="${game.id}" class="previously-played-game">${index}. Game ID: ${game.id}</li>
 
     `
   }

@@ -25,6 +25,11 @@ class APIAdapter {
     })
   }
 
+  getGames(id){
+    return fetch(`${this.endpoint}/${id}/games`)
+      .then(response=>response.json())
+  }
+
    updateItem(body, id){
     return fetch(`${this.endpoint}/${id}`, {
       method: 'PUT',

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function getGameSingleGame(event){
     domController.resetBoardView()
     if (event.target.className === "previously-played-game"){
-      gamePlayerConnection.getSingle(event.target.id).then(data=> {
+      gamePlayerConnection.getSingle(event.target.dataset.id).then(data=> {
           gameConnection.getSingle(data.game_id).then(data => domController.drawBoardView(data.board.split("%")))
       })
     }
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (gameBoard.won){
       let message = `${gameBoard.checkWinningGame().player} won the last game! 🌮`
       domController.alert(message)
-
+      board.setAttribute("style", "animation-name: flip-x; animation-duration: 3s;")
 
       //create board in db
       gameConnection.createItem({board: gameBoard.gameBoard}).then(response => {
@@ -71,6 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       domController.resetBoardView()
       gameBoard.resetBoard()
+      board.removeAttribute("animation-name")
+      board.removeAttribute("animation-duration")
+
       }
   }// end game loop
 
@@ -114,6 +117,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 /////////////////////////////TO DO DISPLAY USER GAMES////////////////////////
+  // function findUserGames(userId, playerNumber){
+  //   let allGames = null
+  //   playerConnection.getGames(userId).then(games =>{
+  //     allGames = games.filter(function(game){
+  //       if (game.player1_id === userId || game.player2_id === userId) return game
+  //     })
+  //     allGames.forEach(function(game){
+  //       gameConnection.getSingle(game.id).then(data => {
+  //         playerConnection.getSingle(opponent)
+  //           .then(data => {
+  //             console.log(data.name)
+  //             domController.showPlayersGames(game, playerNumber, data.name)
+  //           })
+  //       })
+  //     })
+  //   })
+  // }
   function findUserGames(userId, playerNumber){
     let allGames = null
     let index = 0
@@ -128,8 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       })
     })
-  }
-
+}
   function findUsers(players, player1Name, player2Name){
 
     players.forEach(function (person){
