@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }// end game loop
 
   function userSignInOrCreate(event){
-    
+
     domController.resetBoardView()
     gameBoard.resetBoard()
     event.preventDefault()
@@ -119,26 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
   }
-/////////////////////////////TO DO DISPLAY USER GAMES////////////////////////
-  // function findUserGames(userId, playerNumber){
-  //   let allGames = null
-  //   playerConnection.getGames(userId).then(games =>{
-  //     allGames = games.filter(function(game){
-  //       if (game.player1_id === userId || game.player2_id === userId) return game
-  //     })
-  //     allGames.forEach(function(game){
-  //       gameConnection.getSingle(game.id).then(data => {
-  //         playerConnection.getSingle(opponent)
-  //           .then(data => {
-  //             console.log(data.name)
-  //             domController.showPlayersGames(game, playerNumber, data.name)
-  //           })
-  //       })
-  //     })
-  //   })
-  // }
 
-  // 
   function findUserGames(userId, playerNumber){
     let allGames = null
     let index = 0
