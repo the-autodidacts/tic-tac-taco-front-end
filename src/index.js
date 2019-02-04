@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }// end game loop
 
   function userSignInOrCreate(event){
+    
     domController.resetBoardView()
     gameBoard.resetBoard()
     event.preventDefault()
@@ -93,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       findUsers(playerData, player1Name, player2Name)
       findUserGames(player1.id, 1)
       findUserGames(player2.id, 2)
+
       if (!player1.name){
 
         playerConnection.createItem({name: player1Name}).then(response => {
@@ -115,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       }
     })
+
   }
 /////////////////////////////TO DO DISPLAY USER GAMES////////////////////////
   // function findUserGames(userId, playerNumber){
@@ -134,6 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //     })
   //   })
   // }
+
+  // 
   function findUserGames(userId, playerNumber){
     let allGames = null
     let index = 0
@@ -144,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       allGames.forEach(function(game){
         gameConnection.getSingle(game.id).then(data => {
           index++
+          debugger
           domController.showPlayersGames(game, playerNumber, index)
         })
       })

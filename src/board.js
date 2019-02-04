@@ -11,8 +11,8 @@ class Board {
   //checks to see if a game has been won and by whom.
   //[1,2,3]  [4,5,6]  [7,8,9] [1,4,7] [2,5,8] [3,6,9] [1,5,9] [3,5,7]
   checkWinningGame(){
-    console.log("in winning game");
-    console.log("------")
+    // console.log("in winning game");
+    // console.log("------")
     let a1 = this.gameBoard[0]
     let b2 = this.gameBoard[1]
     let c3 = this.gameBoard[2]
@@ -22,8 +22,8 @@ class Board {
     let g7 = this.gameBoard[6]
     let h8 = this.gameBoard[7]
     let i9 = this.gameBoard[8]
-    console.log("i9 is", i9)
-    console.log("------")
+    // console.log("i9 is", i9)
+    // console.log("------")
     if ((a1 === "X" && b2 === "X" && c3 === "X")||
         (d4 === "X" && e5 === "X" && f6 === "X")||
         (g7 === "X" && h8 === "X" && i9 === "X")||
