@@ -1,7 +1,7 @@
 div .circle.spin {
-  width: 60px;
-  height: 60px;
-  border: 2px solid #fff;
+  width: 80px;
+  height: 80px;
+  border: 4px solid darkgreen;
   border-radius: 50%;
   margin: auto;
   animation-name: flip-y;

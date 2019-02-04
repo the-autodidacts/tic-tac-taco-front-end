@@ -1,6 +1,6 @@
 .x {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin: auto;
     position: relative;
     animation-name: flip-x;
@@ -8,22 +8,22 @@
 }
 .x:after {
     content: '';
-    height: 60px;
-    border-left: 2px solid #fff;
+    height: 80px;
+    border-left: 4px solid darkgreen;
     position: absolute;
     transform: rotate(45deg);
-    left: 28px;
+    left: 38px;
     /* animation-name: flip-x;
     animation-duration: 2s; */
 }
 
 .x:before {
     content: '';
-    height: 60px;
-    border-left: 2px solid #fff;
+    height: 80px;
+    border-left: 4px solid darkgreen;
     position: absolute;
     transform: rotate(-45deg);
-    left: 28px;
+    left: 38px;
     /* animation-name: flip-x;
     animation-duration: 2s; */
 }
