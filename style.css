@@ -4,10 +4,7 @@ body {
   line-height: 1.5;
   background: rgba( 247, 249, 249, 1);
   min-width: 1120px;
-  text-align: center;
-  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; */
+
 
 }
 
@@ -17,7 +14,7 @@ body {
  left: 0;
  width: 1000%;
  height: 1000%;
- background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg');
+ background-image: url('001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg');
  background-repeat: no-repeat;
  background-attachment: fixed;
  background-size: 100%;
