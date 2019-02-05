@@ -2,7 +2,7 @@ class DOMController {
 
   drawBoardView(aBoard){
     aBoard.forEach(function(piece, index){
-      console.log(piece);
+
       if (piece === "X"){
         document.querySelectorAll(`[data-id='${index+1}']`)[0].children[1].style.display ="block"
       }
