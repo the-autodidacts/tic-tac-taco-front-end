@@ -49,33 +49,60 @@ document.addEventListener('DOMContentLoaded', () => {
     gameBoard.checkWinningGame()
     //Game over
     if (gameBoard.won){
-      let message = `${gameBoard.checkWinningGame().player} won the last game! 🌮`
-      domController.alert(message)
-      board.setAttribute("style", "animation-name: flip-x; animation-duration: 3s;")
+      let winner = gameBoard.checkWinningGame().player;
+      if (winner === "Player 1"){
+        updateGame(player1.id)
+      }
+      else {
+        updateGame(player2.id)
+      }
 
-      //create board in db
-      gameConnection.createItem({board: gameBoard.gameBoard}).then(response => {
-        if (response.ok)return response.json()
-      }).then(response => {
-        console.log(response)
-        //create finished game in DB
-        gamePlayerConnection.createItem({player1_id: player1.id , player2_id: player2.id, game_id: response.id}).then(responseGamePlayer => {
-          if (response.ok) return responseGamePlayer.json()
-        }).then(responseGamePlayer =>
-          {
-            domController.resetPlayerView(1)
-            domController.resetPlayerView(2)
-            findUserGames(player1.id, 1)
-            findUserGames(player2.id, 2)
-          })
-      })
-      domController.resetBoardView()
-      gameBoard.resetBoard()
-      board.removeAttribute("animation-name")
-      board.removeAttribute("animation-duration")
 
       }
   }// end game loop
+
+  function updateGame (player_id){
+    playerConnection.getSingle(player_id)
+      .then(response => {
+        let winner = response.name
+        let message = `${winner} won the last game! 🌮`;
+        //create board in db
+        gameConnection.createItem({ board: gameBoard.gameBoard }).then(response => {
+          if (response.ok) return response.json()
+        }).then(response => {
+
+
+          //create finished game in DB
+          gamePlayerConnection
+            .createItem({
+              player1_id: player1.id,
+              player2_id: player2.id,
+              game_id: response.id,
+              game_winner: winner
+            })
+            .then(responseGamePlayer => {
+              if (response.ok) return responseGamePlayer.json();
+            })
+            .then(responseGamePlayer => {
+              domController.resetPlayerView(1);
+              domController.resetPlayerView(2);
+              findUserGames(player1.id, 1);
+              findUserGames(player2.id, 2);
+            });
+        })
+
+
+        domController.alert(message)
+        board.setAttribute("style", "animation-name: flip-x; animation-duration: 3s;")
+
+
+        domController.resetBoardView()
+        gameBoard.resetBoard()
+        board.removeAttribute("animation-name")
+        board.removeAttribute("animation-duration")
+
+      })
+  }
 
   function userSignInOrCreate(event){
 
@@ -130,12 +157,13 @@ document.addEventListener('DOMContentLoaded', () => {
       allGames.forEach(function(game){
         gameConnection.getSingle(game.id).then(data => {
           index++
-          debugger
           domController.showPlayersGames(game, playerNumber, index)
         })
       })
     })
 }
+
+
   function findUsers(players, player1Name, player2Name){
 
     players.forEach(function (person){
