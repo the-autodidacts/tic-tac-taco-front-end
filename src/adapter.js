@@ -1,7 +1,7 @@
 
 class APIAdapter {
   constructor(endpoint) {
-    this.endpoint = `http://localhost:3000/${endpoint}`
+    this.endpoint = `http://yoaante.com/tictactacoapi/${endpoint}`
     this.headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
